@@ -28,10 +28,12 @@
 - ただし、バイナリベクトルタイルではなければ実現できない速度領域というものが、存在する。そこに手を付けざるを得ないプレイヤーのみが、バイナリベクトルタイルに進出しているという状況と理解するのが、早わかりであろう。
 
 ## 情報源
-- データフォーマットを知りたい場合、 vector-tile-spec を見る。
+- データフォーマットを知りたい場合、 [vector-tile-spec](https://github.com/mapbox/vector-tile-spec) を見る。
 - Shapefile 等からの変換を行いたい場合、tippecanoe を見る。
-- スタイル付けをしたい場合、kosmtik や Mapbox Studio や Tangram Play を使う。
+- OpenStreetMap のデータをバイナリベクトルタイルにする場合、 [openmaptiles](https://openmaptiles.org/) が利用できる。
+- スタイル付けをしたい場合、kosmtik や Mapbox Studio や Tangram Play や [Mapunik](http://maputnik.com/) を使う。
 - ブラウザで表示をしたい場合、Mapbox GL JS や Tangram を使う。Tangram は Leaflet の拡張として実装されている。OpenLayers の新しめのものでもサポートされているらしい。
+- バイナリベクトルタイルのmbtilesを作成して配信する場合は [tileserver-gl](https://github.com/klokantech/tileserver-gl) が利用できる。また、Mapbox Styleを設定するとラスタタイルの配信も可能。
 
 ## 作品例
 これから充実させていく。
@@ -39,3 +41,5 @@
 - 国土地理院ベクトルタイル提供実験「基盤地図情報（基本情報項目）」ベクトルタイルの一部（佐賀あたり）をタイルワイズにバイナリベクトルタイル変換してホストしてみたもの https://hfu.github.io/8220102/
 - 地球地図バイナリベクトルタイル https://hfu.github.io/globalmaps-vt-style/
 - 電子国土基本図（住居表示住所）バイナリベクトルタイル https://hfu.github.io/gsi-address-vt/
+- OpenMapTiles - OpenStreetMapをバイナリベクトルタイルへ変換するためのツール郡の提供及びホスティングサービス https://openmaptiles.org/
+- だれでもナビ OpenMapTilesを利用した地図の提供と神戸市のガイドラインに近い地図をMapbox Styleで実現し、iOS版ではベクトルタイルバイナリ(Mapbox GL JS)を、Android 版ではラスタタイル(Leaflet)を利用している [iOS](https://itunes.apple.com/us/app/%E3%81%A0%E3%82%8C%E3%81%A7%E3%82%82%E3%83%8A%E3%83%93/id1213316151?l=ja&ls=1&mt=8) [Android](https://play.google.com/store/apps/details?id=org.shiawasenomura.app.udnavi)
