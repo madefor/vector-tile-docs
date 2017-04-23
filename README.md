@@ -1,5 +1,7 @@
 # vector-tile-docs home
-ベクトルタイル、とりわけバイナリベクトルタイルに関する情報がそれほど一般的ではない現在の状況について、説明を試みる。
+ベクトルタイル、とりわけバイナリベクトルタイルに関する情報が十分でない現状に対し、本ドキュメントは次の説明を試みる。
+- バイナリベクトルタイルの情報が十分ではない理由
+- バイナリベクトルタイルについてどのようなドキュメントを読めばよいか
 
 ## 前提
 - ウェブにタイル形式で提供されるジオデータは、そのデータセットサイズで大きく分けられる。（1）日本一国以上をカバーするような、データセットサイズ350GB〜数TB程度のデータセット、（2）都道府県をカバーするような数百MB〜5GB程度のデータセット、（3）個別地域の個別主題に対応するような、数十KB〜10MB程度のデータセット。この中間のスケールのデータセットは、あまり存在しない。
@@ -27,19 +29,21 @@
 - ブラウザの WebGL 対応が従前ではないことも、バイナリベクトルタイルの採用を躊躇させている原因の一つであろう。なお、GeoJSON ベクトルタイルであれば、Leaflet 用の canvas / SVG ベースのエクステンションに安定しているものがある。安定志向かつ小さいデータであれば、GeoJSON ベクトルタイルを採用しがちになる原因であろう。
 - ただし、バイナリベクトルタイルではなければ実現できない速度領域というものが、存在する。そこに手を付けざるを得ないプレイヤーのみが、バイナリベクトルタイルに進出しているという状況と理解するのが、早わかりであろう。
 
-## 情報源
-- データフォーマットを知りたい場合、 [vector-tile-spec](https://github.com/mapbox/vector-tile-spec) を見る。
-- Shapefile 等からの変換を行いたい場合、tippecanoe を見る。
+## ツールリスト
+- データフォーマットを知りたい場合、 [vector-tile-spec](https://github.com/mapbox/vector-tile-spec) を見る。madefor で[和訳](https://github.com/madefor/vector-tile-spec/blob/japanese/2.1/README.md)も進行中である。
+- GeoJSON ファイルからの変換を行いたい場合、[tippecanoe](https://github.com/mapbox/tippecanoe) を見る。C++ベースのツールであり、安定していると考えている。
+- より JavaScript ベースのツールとして[geojson2mvt](https://github.com/NYCPlanning/geojson2mvt/blob/master/package.json)の開発も進んでいる。
 - OpenStreetMap のデータをバイナリベクトルタイルにする場合、 [openmaptiles](https://openmaptiles.org/) が利用できる。
-- スタイル付けをしたい場合、kosmtik や Mapbox Studio や Tangram Play や [Mapunik](http://maputnik.com/) を使う。
+- スタイル付けをしたい場合、[kosmtik](https://github.com/kosmtik/kosmtik) や [Mapbox Studio](https://www.mapbox.com/mapbox-studio/) や [Tangram Play](https://mapzen.com/tangram/play/#3.00/0.00/0.00) や [Mapunik](http://maputnik.com/) を使う。
 - ブラウザで表示をしたい場合、Mapbox GL JS や Tangram を使う。Tangram は Leaflet の拡張として実装されている。OpenLayers の新しめのものでもサポートされているらしい。
 - バイナリベクトルタイルのmbtilesを作成して配信する場合は [tileserver-gl](https://github.com/klokantech/tileserver-gl) が利用できる。また、Mapbox Styleを設定するとラスタタイルの配信も可能。
 
-## 作品例
-これから充実させていく。
-- マピオンベクター https://mapion.github.io/mapion-vector/
+## プロダクトリスト
+- [マピオンベクター](https://mapion.github.io/mapion-vector/)
 - 国土地理院ベクトルタイル提供実験「基盤地図情報（基本情報項目）」ベクトルタイルの一部（佐賀あたり）をタイルワイズにバイナリベクトルタイル変換してホストしてみたもの https://hfu.github.io/8220102/
-- 地球地図バイナリベクトルタイル https://hfu.github.io/globalmaps-vt-style/
+- [地球地図バイナリベクトルタイル](https://hfu.github.io/globalmaps-vt-style/)
 - 電子国土基本図（住居表示住所）バイナリベクトルタイル https://hfu.github.io/gsi-address-vt/
-- OpenMapTiles - OpenStreetMapをバイナリベクトルタイルへ変換するためのツール郡の提供及びホスティングサービス https://openmaptiles.org/
+- [OpenMapTiles](https://openmaptiles.org/) - OpenStreetMapをバイナリベクトルタイルへ変換するためのツール郡の提供及びホスティングサービス 
 - だれでもナビ OpenMapTilesを利用した地図の提供と神戸市のガイドラインに近い地図をMapbox Styleで実現し、iOS版ではベクトルタイルバイナリ(Mapbox GL JS)を、Android 版ではラスタタイル(Leaflet)を利用している [iOS](https://itunes.apple.com/us/app/%E3%81%A0%E3%82%8C%E3%81%A7%E3%82%82%E3%83%8A%E3%83%93/id1213316151?l=ja&ls=1&mt=8) [Android](https://play.google.com/store/apps/details?id=org.shiawasenomura.app.udnavi)
+
+このリストは、さらに充実させていく必要がある。
